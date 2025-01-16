@@ -23,3 +23,6 @@ static.exe :
 shared.exe :
 	$(CC) src/main.c -L./lib -ldynamic_array -o da_shared
 	ldd da_shared
+
+clean : 
+	rm -rf da_shared da_static
