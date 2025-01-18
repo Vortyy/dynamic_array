@@ -1,6 +1,6 @@
 # Dynamic array
 
-The goal of this was to :
+The goal of this project was to :
 - implements dynamic array in C and try to be generic as possible (w/o abusing of macro which i not succeed ahah) 
 - using small buffer optimization
 - create small static and dynamic librarie to learn how to make it
