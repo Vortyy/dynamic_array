@@ -9,18 +9,18 @@ int main(int argc, char **argv){
 
   srand(time(NULL));
 
-  int size = atoi(*++argv);
+  int size = atoi(*++argv); /* arg 1 set the size of the original stack buffer */
   int array[size];
 
-  Vector v;
+  Vector v; 
   vec_init(&v, array, size);
 
   for(int i = 0; i < 26; i++){
-    vec_push(&v, rand() % 100);
+    vec_push(&v, rand() % 100); /* push random number more that size of the base array */
   }
   
   for(int i = 0; i < v.cnt; i++) 
-    printf("value of v[%d] = %d\n", i, vec_get(&v, i, int));
+    printf("value of v[%d] = %d\n", i, vec_get(&v, i, int)); /* print values inside the Vector v */
 
   return EXIT_SUCCESS;
 }

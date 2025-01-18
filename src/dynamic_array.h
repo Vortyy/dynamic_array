@@ -1,3 +1,14 @@
+/*********************************************************************
+ * Dynamic array v1.0
+ *
+ * implementation of dynamyc array such vector(C++), ArrayList(Java),... 
+ * using small buffer optimization which help to keep small buffer inside 
+ * the stack memory until, it needs to grow
+ *
+ * REF : 
+ *  - https://en.wikipedia.org/wiki/Dynamic_array
+ *  - https://nullprogram.com/blog/2016/10/07/
+ *********************************************************************/
 #ifndef DYNAMIC_ARRAY_H
 #define DYNAMIC_ARRAY_H
 
