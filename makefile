@@ -1,14 +1,19 @@
 CC = clang
 CFLAGS = -g
 
+all: static.exe shared.exe shared_lib lib_a
+
 shared_lib: build_lib
+	if [ ! -d "./lib" ]; then mkdir lib; fi
 	$(CC) -shared build/dynamic_array.o -o lib/libdynamic_array.so 
 
 # generates static library
-lib_a: build_lib
+static_lib: build_lib
+	if [ ! -d "./lib" ]; then mkdir lib; fi
 	ar rcs lib/libdynamic_array.a build/dynamic_array.o
 
 build_lib :
+	if [ ! -d "./build" ]; then mkdir build; fi
 	$(CC) $(CFLAGS) -c src/dynamic_array.c -o build/dynamic_array.o -fPIC
 
 # interesting to note that you can specific which format you want link you're lib by -l:filename.a (or .so)
@@ -25,4 +30,4 @@ shared.exe :
 	ldd da_shared
 
 clean : 
-	rm -rf da_shared da_static
+	rm -rf build lib da_shared da_static
