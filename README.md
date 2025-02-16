@@ -1,10 +1,8 @@
 # Dynamic array
-
-The goal of this project was to :
-- implements dynamic array in C and try to be generic as possible (w/o abusing of macro which i not succeed ahah) 
+- implements dynamic array in C generic as possible (w/o abusing of macro) 
 - using small buffer optimization
-- create small static and dynamic librarie to learn how to make it
+- create small static and dynamic
 
-**REF** :
-- https://en.wikipedia.org/wiki/Dynamic_array
-- https://nullprogram.com/blog/2016/10/07/
+## References:
+- [A Dynamic Array ???](https://en.wikipedia.org/wiki/Dynamic_array)
+- [SBO explanation](https://nullprogram.com/blog/2016/10/07/)
