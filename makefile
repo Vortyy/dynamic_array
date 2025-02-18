@@ -1,7 +1,7 @@
 CC = clang
 CFLAGS = -g
 
-all: static.exe shared.exe shared_lib lib_a
+all: shared_lib static_lib 
 
 shared_lib: build_lib
 	if [ ! -d "./lib" ]; then mkdir lib; fi
@@ -25,8 +25,11 @@ static.exe :
 #fun part makefile process each command in separated shell then export never affect the current shell
 #So important part to dynamic library is to get an access to them at running time by specifying an 
 # -- env var LD_LIBRARY_PATH
+# So specify LD_LIBRARY COULD really be risky and inconsistent (Plus can add performance issue cf.
+# https://www.hpc.dtu.dk/?page_id=1180) the best way is to specify run path in compile command
+# -Wl,-rpath : linker Option
 shared.exe :
-	$(CC) src/main.c -L./lib -ldynamic_array -o da_shared
+	$(CC) src/main.c -Wl,-rpath=./lib/ -L./lib -ldynamic_array -o da_shared
 	ldd da_shared
 
 clean : 
