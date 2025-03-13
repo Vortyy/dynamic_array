@@ -4,8 +4,10 @@
 #include "dynamic_array.h"
 
 int main(int argc, char **argv){
-  if(argc == 1)
+  if(argc == 1){
+    printf("error: must set starting size\n");
     return EXIT_FAILURE;
+  }
 
   srand(time(NULL));
 

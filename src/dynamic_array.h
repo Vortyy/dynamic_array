@@ -14,6 +14,7 @@
 
 #include <stdlib.h>
 
+// TODO: type var ??? maybe find another way to store a type inside it
 typedef struct _vector {
   void *values;
   size_t size;
