@@ -2,19 +2,24 @@ CC = clang
 CFLAGS = -g
 
 all: shared_lib static_lib 
-
-shared_lib: build_lib
-	if [ ! -d "./lib" ]; then mkdir lib; fi
+	
+# generates shared library (alone and not)
+shared_lib: build_lib lib_dir
 	$(CC) -shared build/dynamic_array.o -o lib/libdynamic_array.so 
 
+shared_lib_2: build_lib lib_dir
+	$(CC) -shared build/dynamic_array.o -o lib/libdynamic_array.so -lraylib
+
 # generates static library
-static_lib: build_lib
-	if [ ! -d "./lib" ]; then mkdir lib; fi
+static_lib: build_lib lib_dir
 	ar rcs lib/libdynamic_array.a build/dynamic_array.o
 
 build_lib :
 	if [ ! -d "./build" ]; then mkdir build; fi
 	$(CC) $(CFLAGS) -c src/dynamic_array.c -o build/dynamic_array.o -fPIC
+
+lib_dir:
+	if [ ! -d "./lib" ]; then mkdir lib; fi
 
 # interesting to note that you can specific which format you want link you're lib by -l:filename.a (or .so)
 # link : https://stackoverflow.com/questions/6578484/telling-gcc-directly-to-link-a-library-statically
