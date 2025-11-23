@@ -1,4 +1,4 @@
-CC = clang
+CC = gcc 
 CFLAGS = -g
 
 all: shared_lib static_lib 
@@ -38,4 +38,4 @@ shared.exe :
 	ldd da_shared
 
 clean : 
-	rm -rf build lib da_shared da_static
+	rm -rf build lib da_shared da_static result

@@ -9,12 +9,13 @@
   in
   {
     packages."${system}".default = pkgs.stdenv.mkDerivation {
-      name = "my_da";
+      name = "my-da";
       src = self;
 
       buildPhase = "make all";
       installPhase = ''
-      install -D $src/lib/* $out/lib/
+      install -D lib/libdynamic_array.so $out/lib/libdynamic_array.so;
+      install -D lib/libdynamic_array.a $out/lib/libdynamic_array.a;
       '';
     };
 
